@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="Keywords" content="5Paisa,5Paisa Ledger Balance Calculator,5Paisa P/L Realize Calculator">
+<meta name="Description" content="5Paisa Ledger Balance Calculator By Samir Das">
+<meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0, minimum-scale=1">
+<link rel="shortcut icon" href="favicon.ico">
+<title>5Paisa</title>
+<style type="text/css">
+.hidden1{
+	display:none;
+}
+.visible{
+	display:block;
+}
+.font{
+	font-size:20px;
+	font-weight:bold;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+<form class="form-horizontal" id="fivep" name="fivep" ng-app="5paisapp">
+<fieldset ng-controller="plCalculator">
+<!-- Form Name -->
+<legend>5Paisa Margin Value Bill &amp; P/L Bill </legend>
+<!-- Text input-->
+<div class="form-group" ng-init="cl=nodisplay">
+  <label class="col-md-4 control-label" for="lcp">Last Closing Price</label>  
+  <div class="col-md-5">
+  <input ng-model="lcp" autocomplete="on" id="lcp" name="lcp" ng-model="lcp" type="number" step="0.0001" value="" placeholder="LCP" class="form-control input-md" required="">
+  <span class="help-block">Previous Closing Price</span>  
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="lcq">Last Closing Quantity</label>  
+  <div class="col-md-5">
+  <input ng-model="lcq" autocomplete="on" id="lcq" name="lcq" ng-model="lcq" type="number" placeholder="LCQ" class="form-control input-md" required="">
+  <span class="help-block">Previous Closing Quantity</span>  
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="abp">Avg. Buy Price</label>  
+  <div class="col-md-5">
+  <input ng-model="abp" autocomplete="on" id="abp" name="abp" ng-model="abp" type="number" value="0.0000" step="0.0001" placeholder="ABP" class="form-control input-md" required="">
+  <span class="help-block">Average Bought Price</span>  
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="bq">Bought Quantity</label>  
+  <div class="col-md-5">
+  <input ng-model="bq" autocomplete="on" id="bq" name="bq" ng-model="bq" type="number" value="0" placeholder="BQ" class="form-control input-md" required="">
+  <span class="help-block">Buy Quantity</span>  
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="asp">Avg. Selling Price</label>  
+  <div class="col-md-5">
+  <input ng-model="asp" autocomplete="on" id="asp" name="asp" ng-model="asp" type="number" value="0.0000" step="0.0001" placeholder="ASP" class="form-control input-md" required="">
+  <span class="help-block">Average Selling Price</span>  
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="sq">Sold Quantity</label>  
+  <div class="col-md-5">
+  <input ng-model="sq" autocomplete="on" id="sq" name="sq" ng-model="sq" type="number" value="0" placeholder="SQ" class="form-control input-md" required="">
+  <span class="help-block">Sold Quantity</span>  
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="nod">Total No.of Orders Executed</label>  
+  <div class="col-md-5">
+  <input ng-model="nod" autocomplete="on" id="nod" name="nod" ng-model="nod" type="number" value="0" placeholder="NO" class="form-control input-md" required="">
+  <span class="help-block">Sold Quantity</span>  
+  </div>
+</div>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="ccp">Current Closing Price</label>  
+  <div class="col-md-5">
+  <input ng-model="ccp" autocomplete="on" id="ccp" name="ccp" ng-model="ccp" type="number" step="0.0001" placeholder="CCP" class="form-control input-md" required="">
+  <span class="help-block">Today's Market Closing Price</span>  
+  </div>
+</div>
+<!-- Button -->
+<!--<div class="form-group">
+  <label class="col-md-4 control-label" for="calculate"></label>
+  <div class="col-md-4">
+    <button id="calculate" name="calulate" class="btn btn-success">Submit</button>
+  </div>
+</div>-->
+<p ng-style="style()" ng-class="class" class="hidden1 font">Your 5Paisa Ledger a/c will be {{extax()}}</p>
+</fieldset>
+</form>
+
+</div>
+</div>
+<noscript>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" media="screen">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css" rel="stylesheet" media="screen">
+</noscript>
+<script type="text/javascript">
+/* First CSS File */
+var giftofspeed = document.createElement('link');
+giftofspeed.rel = 'stylesheet';
+giftofspeed.href = 'https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css';
+giftofspeed.type = 'text/css';
+var godefer = document.getElementsByTagName('link')[0];
+godefer.parentNode.insertBefore(giftofspeed, godefer);
+/* Second CSS File */
+var giftofspeed2 = document.createElement('link');
+giftofspeed2.rel = 'stylesheet';
+giftofspeed2.href = 'https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css';
+giftofspeed2.type = 'text/css';
+var godefer2 = document.getElementsByTagName('link')[0];
+godefer2.parentNode.insertBefore(giftofspeed2, godefer2);
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js" crossorigin="anonymous"></script>
+</script>
+
+<script defer async type="application/javascript">(function(){
+	var app = angular.module('5paisapp',[]);
+	app.controller('plCalculator', function($scope){
+		/*$scope.lcp = 0.0000;
+    $scope.lcq = 0.0000;
+    $scope.time = 0;
+    var grandTotal = 0.0000;*/
+	
+    $scope.extax = function(){
+		var bcharge = 10;
+		var nord = $scope.nod;
+		var bramt = bcharge*nord;
+		var pcb = $scope.lcp * $scope.lcq * 1000;
+		var todbuy = $scope.abp * $scope.bq * 1000;
+		var todsell = $scope.asp * $scope.sq * 1000;
+		var todfinquan = $scope.lcq + $scope.sq - $scope.bq;
+		var totqty = $scope.bq + $scope.sq;
+		var brc =  bramt;
+		var etc = (0.5775 * totqty).toFixed(2);
+		var taxable = parseFloat(brc) + parseFloat(etc);
+		var gst = parseFloat(0.18 * taxable).toFixed(2);
+		var sebi = (0.1900 * nord).toFixed(2);
+		var ottax = (0.032 * totqty).toFixed(2);
+		var stmpdty = (1.2860 * totqty).toFixed(4);
+		var alltax = parseFloat(etc) + parseFloat(gst) + parseFloat(sebi) + parseFloat(ottax) + parseFloat(stmpdty) + parseFloat(brc);
+		var todfinval = parseFloat($scope.ccp * 1000 * todfinquan).toFixed(4);
+		var allval1 = pcb - todbuy;
+		var allval2 = parseFloat(allval1) + parseFloat(todsell);
+		var allfin = allval2 - todfinval;
+		var incltx = allfin - alltax;
+		console.log(totqty);
+		console.log(todfinquan);
+		console.log(brc);
+		console.log(taxable);
+		console.log(gst);
+		console.log(sebi);
+		console.log(ottax);
+		console.log(stmpdty);
+		console.log(alltax);
+		console.log(todfinval);
+		console.log(todsell);
+		console.log(todbuy);
+		console.log(pcb);
+		console.log(allval1);
+		console.log(allval2);
+		console.log(allfin);
+		console.log(incltx);
+		$scope.data = allfin;
+		if(allfin>0){
+			$scope.class = "bg-success";
+			var tr="credited";
+		}
+		else{
+			$scope.class = "bg-danger";
+			var tr="debited";
+		}
+		if(allfin){
+			$scope.show = true;
+		}
+      return tr+" with ₹"+allfin.toFixed(4)+" excluding taxes & brokerage and ₹"+incltx.toFixed(4)+" after deducting taxes." ;
+    }
+	$scope.style = function() {
+		if($scope.data){
+        return { "display": "block" };
+		}
+      };
+	});
+})();
+//# sourceURL=pen.js
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" defer async src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.4.1/jquery-migrate.min.js"></script>
+<script defer async src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.4.1/jquery-migrate.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js" crossorigin="anonymous"></script>-->
+</body>
+</html>

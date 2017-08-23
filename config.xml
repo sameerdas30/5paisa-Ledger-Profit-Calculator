@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.phonegap.5paisacalc"
+    versionCode = "10"
+    version     = "1.0.0" >
+
+  <name>5Paisa Day Profit Calculator </name>
+  <description>
+      5Paisa Day Profit Ledger Calculator By Samir Das
+  </description>
+  <author href="https://www.webzin.in" email="sameer@webzin.in">
+      Sam
+  </author>
+    <access origin="https://*.bootstrapcdn.com" />
+	<access origin="https://*.cloudflare.com" />
+    <access origin="*" />
+  <!-- all platforms -->
+  <preference name="phonegap-version" value="cli-6.5.0" />
+  <preference name="orientation" value="default" />
+  <preference name="stay-in-webview" value="true" />
+</widget>

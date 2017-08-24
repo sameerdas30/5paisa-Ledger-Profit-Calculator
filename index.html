@@ -21,6 +21,10 @@
 	font-size:20px;
 	font-weight:bold;
 }
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
 </style>
 </head>
 <body>
@@ -171,13 +175,10 @@
 			$scope.class = "bg-danger";
 			var tr="debited";
 		}
-		if(allfin){
-			$scope.show = true;
-		}
-      return tr+" with ₹"+allfin.toFixed(4)+" excluding taxes & brokerage and ₹"+incltx.toFixed(4)+" after deducting taxes." ;
+      return tr+" approximately with ₹"+allfin.toFixed(4)+" excluding taxes & brokerage and ₹"+incltx.toFixed(4)+" after deducting taxes." ;
     }
 	$scope.style = function() {
-		if($scope.data){
+		if($scope.data || $scope.data==0){
         return { "display": "block" };
 		}
       };

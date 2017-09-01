@@ -9,11 +9,15 @@
   <description>
       5Paisa Day Profit Ledger Calculator By Samir Das
   </description>
-  <author href="https://www.webzin.in" email="sameer@webzin.in">
+  <author href="http://www.ignitedbrains.in" email="sameer@ignitedbrains.in">
       Sam
   </author>
     <access origin="https://*.bootstrapcdn.com" />
 	<access origin="https://*.cloudflare.com" />
+	<access origin="http://code.jquery.com/*" />
+  <access origin="https://maxcdn.bootstrapcdn.com/*" />
+  <access origin="https://cdnjs.cloudflare.com/*" />
+  
     <access origin="*" />
 	  <!-- all platforms -->
 	  <preference name="phonegap-version" value="cli-6.5.0" />

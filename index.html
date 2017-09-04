@@ -144,7 +144,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 		var allval2 = parseFloat(allval1) + parseFloat(todsell);
 		var allfin = allval2 - todfinval;
 		var incltx = allfin - alltax;
-		console.log(totqty);
+		/*console.log(totqty);
 		console.log(todfinquan);
 		console.log(brc);
 		console.log(taxable);
@@ -160,9 +160,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 		console.log(allval1);
 		console.log(allval2);
 		console.log(allfin);
-		console.log(incltx);
+		console.log(incltx);*/
 		$scope.data = allfin;
-		if(allfin>0){
+		if(incltx>0){
 			$scope.class = "bg-success";
 			var tr="credited";
 		}
